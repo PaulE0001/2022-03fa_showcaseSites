@@ -1,0 +1,10 @@
+:root {box-sizing: border-box;}
+html, body {height: 100%;}
+body {
+	display: flex;
+	margin: 0;
+}
+iframe {
+	display: block;
+	margin: auto;
+}
