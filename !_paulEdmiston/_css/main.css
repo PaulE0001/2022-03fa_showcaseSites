@@ -1,0 +1,153 @@
+/********************************
+CATCH-ALLS, ROOT APPLIED, INITIAL
+********************************/
+:root {
+	font-family: "Avenir", "Helvetica", "Arial", sans-serif;
+	box-sizing: border-box;	
+	
+	/*VARIABLES*/
+	--brandingprimary: #00b74f;
+		--brandingprimary_tintup: #38D77C;
+		--brandingprimary_shadedown1: #009A42;
+		--brandingprimary_shadedown2: #008137;
+	--brandingsecondary: #ff48b0;
+	--bodygray: #3f3f3f;
+	--captiongray: #606060;
+	--linkderive: #006cb7;
+	--linkvisit: #643c97;
+	--quick_easeout: cubic-bezier(.12,.75,.50,1);
+}
+* {
+	box-sizing: border-box;
+	color: var(--bodygray);
+}
+html {
+	height: 100%;
+}
+body {
+	margin: 0;
+	max-width: 100%;
+	min-height: 100%;
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	font-size: 12pt;
+}
+
+main {
+	margin: auto;
+	width: 100%;
+	max-width: 210mm;
+    padding: 1rem;
+}
+#interior {
+	width: 100%;
+	max-width: 210mm;
+}
+/*HEADER AND NAV*/
+header {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	display: inline;
+}
+nav ul li a, nav ul li a:visited {
+	padding: 0.75rem;
+
+	text-decoration: none;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: var(--brandingprimary);
+	transition: background-color 0.2s var(--quick_easeout);
+}
+nav ul li a:hover {
+	text-decoration: underline;
+	background-color: var(--brandingprimary_shadedown1);
+}
+#pgtype_ nav a.pgMod_, 
+#pgtype_About nav a.pgMod_about, 
+#pgtype_Works nav a.pgMod_works, 
+#pgtype_Rationale nav a.pgMod_rationale {
+	background-color: var(--brandingprimary_tintup);
+}
+
+nav ul li a:active {
+	background-color: var(--brandingprimary_shadedown2);
+}
+#logotype {
+	height: 45px;
+}
+footer {
+	padding: 1rem;
+	color: var(--captiongray);
+	font-size: 10pt;
+	max-width: 210mm;
+}
+
+
+
+
+/******************
+GENERAL PAGE FODDER
+******************/
+/*GENERAL TEXT FAIRE*/
+h1, h2 {color:var(--brandingprimary)}
+h1 {margin-bottom: 0;}
+h1 a, h1 a:visited, h1 a img {color: var(--brandingprimary);}
+h2.subtitled {margin-bottom: 0;}
+p.emSpace {
+    margin-bottom: 2rem;
+}
+p.subtitle { 
+	color: var(--brandingprimary);
+	margin-top: 0;
+	margin-bottom: 2rem;
+	clear: both;
+}
+
+article {
+	margin: auto;
+}
+article, article h3, article p {
+	max-width: 480px;
+}
+img.widthCap {
+	margin: auto;
+	border: 1px solid var(--brandingprimary);
+	max-width: 480px;
+	max-height: 480px;
+	object-fit: contain;
+}
+
+a {
+	color: var(--linkderive);
+}
+a.subtle {text-decoration: none;}
+a:visited {
+	color: var(--linkvisit);
+}
+.doodle {
+	max-width: 300px;
+	shape-margin: 2rem;
+	margin: 2rem;
+	margin-left: 0;
+	margin-top: 0;
+
+	float: left;
+}
+hr {
+	clear: both;
+	color: var(--brandingprimary);
+}
