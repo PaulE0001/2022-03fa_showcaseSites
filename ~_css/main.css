@@ -1,2 +1,27 @@
-:root {box-sizing: border-box;}
+/*
+#FONT IMPORTS:
+	- PT Sans. Reg 400, Reg 400 Italic, Bold 700, Bold 700 Italic.
+*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+	/*
+	#  VARIABLE DEFINING
+	## COLORS
+	Colors as of OCT 16 2022:
+	printBlue: ........ #00AEEF.    0, 174, 239. 
+	printBlack: ....... #231F20.   35,  31,  32.
+	printGray: ........ #58595B.   88,  89,  91.
+	secondaryAccent ... #FFD700.  255, 215,   0.  CSS gold.
+	tertiaryAccent .... #FF1493.  255,  20, 147.  CSS deepPink.
+	*/
+	--printBlue:       #00aeef;
+	--printBlack:      #231F20;
+	--printGray:       #58595b;
+	--secondaryAccent: #FFD700;
+	--tertiaryAccent:  #FF1493;
+
+	
+	box-sizing: border-box;
+}
 html, body {height: 100%;}
