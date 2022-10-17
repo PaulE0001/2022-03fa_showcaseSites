@@ -32,6 +32,17 @@ let students = [
 	"vickyShan",
 	"zenaXayalath"
 ]
+let displayedStudents = [];
+/* Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. */
+function studentCleanup(student, value, index) {
+	let canaryPresent;
+	$.get(student + "/!_showcaseAssets/buttonImg.png")
+		.done(function() {
+			displayedStudents.push(student);
+		});
+}
+students.forEach(studentCleanup);
+
 
 const showcaseGallery = document.getElementById("showcaseGallery");
 let multilineTest = `<button type="button">
@@ -47,16 +58,3 @@ showcaseGallery.innerHTML = multilineTest;
 let buttonImg;
 let config;
 let description;
-
-/* Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. */
-function studentCleanup(student, index, array) {
-	let canaryPresent;
-	$.get(student + "/!_showcaseAssets/buttonImg.png")
-		.done(function() {canaryPresent = true; })
-		.fail(function() {canaryPresent = false;})
-		.always(function() {
-		console.log(student + ": " + canaryPresent);
-		return canaryPresent;
-	});
-}
-let displayedStudents = students.filter(studentCleanup);
