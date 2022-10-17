@@ -48,11 +48,15 @@ let buttonImg;
 let config;
 let description;
 
-/* The above elements are essential for how the showcase is constructed. If one of the above is not present in the student's folder (ie. value undefined), we can assume that the student's project is not ready for display. Two functions are used toward this end. A general purpsoe file loader lets us type that only once rather than thrice. Then the `studentCleanup` function actually does the deed. */
-function getFile(filePath) {
-	return $.get(filePath);
+/* Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. */
+function studentCleanup(student, index, array) {
+	let canaryPresent;
+	$.get(student + "/!_showcaseAssets/buttonImg.png")
+		.done(function() {canaryPresent = true; })
+		.fail(function() {canaryPresent = false;})
+		.always(function() {
+		console.log(student + ": " + canaryPresent);
+		return canaryPresent;
+	});
 }
-function studentCleanup(value, index, array) {
-	
-}
-students.forEach(studentCleanup);
+let displayedStudents = students.filter(studentCleanup);
