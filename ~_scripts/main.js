@@ -109,6 +109,8 @@ for (let i = galleryContent.length - 1; i >= 0; i--) {
 
 
 let personalSubmit = document.getElementById("!_paulEdmiston");
+let loadingAdvisory = document.getElementById("loadingAdvisory")
+loadingAdvisory.classList.add("hidden");
 function easterEgg() {
 	personalSubmit.classList.toggle("hidden");
 }
