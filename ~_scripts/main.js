@@ -79,9 +79,11 @@ function galleryAssembly(student, index, array) {
 
 
 	multilineTest = `<li id="` + student + `" class="showcaseButton"><a href="` + projHomepage + `" target="_blank">
-		` + mintHighlight + `
+		<div class="buttonText">
+			` + mintHighlight + `
+			<div class="nameLabel">` + config.name + `</div>
+		</div>
 		<img src="` + buttonImg + `" alt="">
-		<div>` + config.name + `</div>
 	</a></li>`;
 	showcaseGallery.insertAdjacentHTML("beforeend", multilineTest);
 	console.log("Text inserted");

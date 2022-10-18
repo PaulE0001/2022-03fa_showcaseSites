@@ -16,12 +16,13 @@
 	secondaryAccent ... #FFD700.  255, 215,   0.  CSS gold.
 	tertiaryAccent .... #FF1493.  255,  20, 147.  CSS deepPink.
 	*/
-	--printBlue:       #00aeef;
-	--printBlack:      #231F20;
-	--printGray:       #58595b;
-	--backing:         #FFFFFF;
-	--secondaryAccent: #FFD700;
-	--tertiaryAccent:  #FF1493;
+	--printBlue:           #00aeef;
+	--printBlue_downshift: #0d6f93;
+	--printBlack:          #231F20;
+	--printGray:           #58595b;
+	--backing:             #FFFFFF;
+	--secondaryAccent:     #FFD700;
+	--tertiaryAccent:      #FF1493;
 
 	
 	box-sizing: border-box;
@@ -38,10 +39,72 @@ html, body {
 
 /* #SITE SECTION ASSETS */
 main {
-	padding: 4rem;
+	padding: 4rem 2rem;
 }
 
-.showcaseButton img {width: 128px;}
+
+#showcaseGallery {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-flow: dense;
+	gap: 1rem;
+
+	list-style: none;
+	padding: 0;
+}
+#showcaseGallery li {
+	display: block;
+	position: relative;
+	left: 0; right: 0;
+	padding-bottom: 100%;
+}
+#showcaseGallery a {
+	display: block;
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	background-color: rgba(0, 174, 239, 0.5);
+}
+.buttonText {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+}
+.newHighlight, .nameLabel {
+	position: relative;
+	padding: 1rem;
+
+	font-size: large;
+}
+.newHighlight {
+	color: var(--printBlack);
+	background-color: var(--secondaryAccent);
+	
+	font-weight: bold;
+}
+.nameLabel {
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	color: var(--backing);
+	background-color: var(--printBlue);
+}
+.showcaseButton img {
+	width: 100%;
+}
+
+
+/* FAQ question prompt */
+#faq li blockquote:first-child {
+	margin-left: calc(0.5rem - 1px);
+	border-left: 2px solid var(--printBlue_downshift);
+	padding-left: calc(0.5rem - 1px);
+
+	color: var(--printBlue_downshift);
+	font-style: italic;
+}
+#faq > ol {padding-left: 1rem;}
+#faq ol ::marker {
+	color: var(--printBlue_downshift);
+	font-weight: bold;
+}
 
 footer {
 	padding: 1rem;
@@ -50,7 +113,7 @@ footer {
 	color: var(--backing);
 	font-size: small;
 }
-footer * {
+footer > * {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -60,6 +123,7 @@ footer a {
 
 
 /* #GENERAL TEXT ASSETS */
+h1, h2, h3, h4, h5, h6 {color: var(--printBlue_downshift);}
 code {
 	font-family: 'Roboto Mono', monospace;
 	font-size: small;
@@ -67,13 +131,25 @@ code {
 
 
 /* #MEDIA QUERIES */
+@media only screen and (min-width: 6in) {
+	main {
+		padding: 4rem;
+	}
+	#showcaseGallery {grid-template-columns: 1fr 1fr;}
+}
+@media only screen and (min-width: 9in) {
+	#showcaseGallery {grid-template-columns: 1fr 1fr 1fr;}
+}
 @media only screen and (min-width: 12in) {
 	main {
 		margin: auto;
 		max-width: 66%;
 		padding: 4rem 0;
 	}
-	footer * {
+	footer > * {
 		max-width: 66%;
 	}	
+}
+@media only screen and (min-width: 16in) {
+	#showcaseGallery {grid-template-columns: 1fr 1fr 1fr 1fr;}
 }
