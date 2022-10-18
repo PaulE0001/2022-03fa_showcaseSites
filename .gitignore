@@ -2,6 +2,7 @@
 **/.vs/
 *.code-workspace
 jsconfig.json
+.DS_Store
 
 # #STUDENT WORK
 **/abrahamSegura/
