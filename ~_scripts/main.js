@@ -87,6 +87,14 @@ function galleryAssembly(student, index, array) {
 	$("#showcaseGallery").append(multilineTest);
 }
 displayedStudents.forEach(galleryAssembly);
+let galleryContents = $("#showcaseGallery a");
+function galleryShuffle() {
+	$.each( galleryContents, function(index, currentValue) {currentValue.detach();} );
+	galleryContents.sort( function() {return 0.5 - Math.random()} );
+	$.each( galleryContents, function(index, currentValue) {showcaseGallery.append(currentValue);} );
+	
+}
+galleryShuffle();
 
 
 
