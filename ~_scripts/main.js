@@ -46,12 +46,8 @@ function studentCleanup(student, index, array) {
 	}	
 }
 students.forEach(studentCleanup);
-/* To help encourage exploration, the gallery order will be random on every refresh. This function is defined first as we'll be using it in multiple places sooner rather than later.
-Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. Get is a seriously weird function, however. It behaves asynchronously. That means that the code will continue with what it was doing, whether or not the function is done. This is technically better, but practically not. Throws a wrench in how to program this. */
-function randomizeArray(array) {
-	array.sort( function() {return 0.5 - Math.random()} );
-}
-;
+
+
 
 
 const showcaseGallery = document.getElementById("showcaseGallery");
@@ -62,11 +58,30 @@ let multilineTest = `<a href="" target="_blank" class="showcaseButton">
 	<img src="!_placeholder1/chirp.png" alt="">
 	<div>This is a button with multiple interior elements.</div>
 </a>`;
+let config;
 function galleryAssembly(student, index, array) {
-	multilineTest = `<a href="" target="_blank" id="` + student + `" class="showcaseButton">
-		<div class="newHighlight">NEW</div>
-		<img src="` + student + `/!_showcaseAssets/buttonImg.png" alt="">
-		<div>` + student + `</div>
+	let primePath = student + "/!_showcaseAssets/";
+
+	let buttonImg = primePath + "buttonImg.png";
+	config = primePath + "config.json";
+	let xhp = new XMLHttpRequest();
+	xhp.open("GET", config, false);
+	xhp.send();
+	config = JSON.parse(xhp.responseText);
+
+	let dateApproved = new Date(config.dateApproved);
+	let dateDiff = todaysDate - dateApproved;
+	let mintHighlight = "";
+	//If the project is younger than a week since approved:
+	if (dateDiff < 604800000) {mintHighlight = `<div class="newHighlight">NEW</div>`}
+
+	let projHomepage = student + "/" + config.homepage;
+
+
+	multilineTest = `<a href="` + projHomepage + `" target="_blank" id="` + student + `" class="showcaseButton">
+		` + mintHighlight + `
+		<img src="` + buttonImg + `" alt="">
+		<div>` + config.name + `</div>
 	</a>`;
 	showcaseGallery.insertAdjacentHTML("beforeend", multilineTest);
 	console.log("Text inserted");
@@ -75,17 +90,17 @@ displayedStudents.forEach(galleryAssembly);
 
 
 
-let buttonImg;
-let config;
 
-
-//let shuffledGallery = [];
 let galleryContent = document.querySelectorAll(".showcaseButton");
 
-//let docFrag = document.createDocumentFragment();
-let listLength = galleryContent.length;
-for (let i = 0; i <= galleryContent.length; i++) {
-	let ranNum = Math.random() * i | 0;
+/* Really wish I kept the Tab I got this from open for long enough to take note of it in hindsight, because the solution it brought up felt ingenious. Certainly so after trying to hash out what was going on, at least.
+
+Part of the issue is that there are at least two ways to get an array of HTML elements, but they have some key differences in what sort of functions you can do right out of the box. I ultimately settled on querySelectorAll, as it allowed me to use array functions. There was another method that used something else I can't recall, but the short of it is that it *didn't* make an array. This made it tough to do some things I took for granted. And even still this solution behaved a bit more quirky than I anticipated. */
+
+
+for (let i = galleryContent.length - 1; i >= 0; i--) {
+	galleryContent = document.querySelectorAll(".showcaseButton");
+	let ranNum = Math.floor(Math.random() * galleryContent.length);
 	showcaseGallery.appendChild( galleryContent.item(ranNum) );
-	console.log("Button" + i + " to " + ranNum);
+	console.log("Button " + i + " to " + ranNum);
 }
