@@ -24,8 +24,19 @@
 
 	
 	box-sizing: border-box;
+	
 }
-html, body {height: 100%;}
+html, body {
+	height: 100%;
+	font-family: 'PT Sans', sans-serif;
+}
 
 
 .showcaseButton img {width: 128px;}
+
+
+/* #GENERAL TEXT ASSETS */
+code {
+	font-family: 'Roboto Mono', monospace;
+	font-size: small;
+}
