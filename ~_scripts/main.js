@@ -38,7 +38,7 @@ Using synchronous requests is discouraged these days, but coding with it is prof
 Considering the time at the moment, I'm going to make that sacrifice. */
 function studentCleanup(student, index, array) {
 	let xhp = new XMLHttpRequest();
-	xhp.open("GET", student + "/!_showcaseAssets/buttonImg.png", false);
+	xhp.open("GET", student + "/!_showcaseAssets/config.json", false);
 	xhp.send();
 	if (xhp.status == 200) {
 		displayedStudents.push(student);
@@ -62,12 +62,14 @@ let config;
 function galleryAssembly(student, index, array) {
 	let primePath = student + "/!_showcaseAssets/";
 
-	let buttonImg = primePath + "buttonImg.png";
 	config = primePath + "config.json";
 	let xhp = new XMLHttpRequest();
 	xhp.open("GET", config, false);
 	xhp.send();
 	config = JSON.parse(xhp.responseText);
+
+	let buttonImg = primePath + "buttonImg.png";
+	if (config.buttonAlt){buttonImg = primePath + config.buttonAlt;}
 
 	let dateApproved = new Date(config.dateApproved);
 	let dateDiff = todaysDate - dateApproved;
