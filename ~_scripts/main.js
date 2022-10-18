@@ -77,4 +77,17 @@ displayedStudents.forEach(galleryAssembly);
 
 let buttonImg;
 let config;
-let description;
+
+function galleryAssembly(student, index, array) {
+	multilineTest = `<a href="" target="_blank" class="showcaseButton">
+		<div class="newHighlight">NEW</div>
+		<img src="!_placeholder1/chirp.png" alt="">
+		<div>` + student + `</div>
+	</a>`;
+	$("#showcaseGallery").append(multilineTest);
+}
+displayedStudents.forEach(galleryAssembly);
+
+
+
+// showcaseGallery.innerHTML = multilineTest;
