@@ -1,2 +1,0 @@
-<p>This is a test of HTML descriptions integrated as a txt for JSON reasons.</p>
-<p>Hopefully these elements should be styled, too.</p>
