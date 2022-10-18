@@ -47,6 +47,7 @@ h1 {
 }
 h1 .titleWrap {
 	padding-left: 2rem;
+	padding-right: 0.5rem;
 
 	color: var(--backing);
 	background-color: #00aeef;
@@ -163,6 +164,8 @@ footer a {
 footer a.roundel {cursor: pointer;}
 .footerThumbs a:first-child {margin-left: 0;}
 .footerThumbs a:last-child {margin-right: 0;}
+
+.hidden {display: none !important;}
 
 
 /* #GENERAL TEXT ASSETS */

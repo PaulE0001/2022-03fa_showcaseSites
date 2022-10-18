@@ -106,3 +106,10 @@ for (let i = galleryContent.length - 1; i >= 0; i--) {
 	showcaseGallery.appendChild( galleryContent.item(ranNum) );
 	console.log("Button " + i + " to " + ranNum);
 }
+
+
+let personalSubmit = document.getElementById("!_paulEdmiston");
+function easterEgg() {
+	personalSubmit.classList.toggle("hidden");
+}
+easterEgg();
