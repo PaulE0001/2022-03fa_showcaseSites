@@ -19,6 +19,7 @@
 	--printBlue:       #00aeef;
 	--printBlack:      #231F20;
 	--printGray:       #58595b;
+	--backing:         #FFFFFF;
 	--secondaryAccent: #FFD700;
 	--tertiaryAccent:  #FF1493;
 
@@ -28,15 +29,51 @@
 }
 html, body {
 	height: 100%;
+	margin: 0;
+
+	color: var(--printBlack);
 	font-family: 'PT Sans', sans-serif;
 }
 
 
+/* #SITE SECTION ASSETS */
+main {
+	padding: 4rem;
+}
+
 .showcaseButton img {width: 128px;}
+
+footer {
+	padding: 1rem;
+	background-color: var(--printBlue);
+
+	color: var(--backing);
+	font-size: small;
+}
+footer * {
+	margin-left: auto;
+	margin-right: auto;
+}
+footer a {
+	color: var(--backing);
+}
 
 
 /* #GENERAL TEXT ASSETS */
 code {
 	font-family: 'Roboto Mono', monospace;
 	font-size: small;
+}
+
+
+/* #MEDIA QUERIES */
+@media only screen and (min-width: 12in) {
+	main {
+		margin: auto;
+		max-width: 66%;
+		padding: 4rem 0;
+	}
+	footer * {
+		max-width: 66%;
+	}	
 }
