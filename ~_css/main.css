@@ -38,6 +38,33 @@ html, body {
 
 
 /* #SITE SECTION ASSETS */
+h1 {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin: 0;
+	padding-top: 2rem;
+}
+h1 .titleWrap {
+	padding-left: 2rem;
+
+	color: var(--backing);
+	background-color: #00aeef;
+}
+h1 .title {
+	display: none;
+}
+.headImgWrap {
+	padding-right: 2rem;
+
+	line-height: 0;
+	background-color: var(--printBlue);
+}
+.headerImg {
+	width: 2in;
+	padding-right: 16%;
+}
+
 main {
 	padding: 4rem 2rem;
 }
@@ -91,6 +118,11 @@ main {
 }
 
 
+article section {
+	margin: 3.66rem 0;
+}
+
+
 /* FAQ question prompt */
 #faq li blockquote:first-child {
 	margin-left: calc(0.5rem - 1px);
@@ -117,9 +149,20 @@ footer > * {
 	margin-left: auto;
 	margin-right: auto;
 }
+.footerThumbs {
+	display: flex;
+	justify-content: center;
+}
+.footerThumbs img {
+	width: 4rem;
+}
 footer a {
+	margin: 0 0.5rem;
 	color: var(--backing);
 }
+footer a.roundel {cursor: pointer;}
+.footerThumbs a:first-child {margin-left: 0;}
+.footerThumbs a:last-child {margin-right: 0;}
 
 
 /* #GENERAL TEXT ASSETS */
@@ -132,15 +175,35 @@ code {
 
 /* #MEDIA QUERIES */
 @media only screen and (min-width: 6in) {
+	h1 .titleWrap {
+		padding-left: 4rem;
+	}
+	.headImgWrap {
+		padding-right: 4rem;
+	}
+	.headerImg {width: 3in;}
+
+
 	main {
 		padding: 4rem;
 	}
 	#showcaseGallery {grid-template-columns: 1fr 1fr;}
 }
+
+
 @media only screen and (min-width: 9in) {
+	h1 .title {display: inline-block;}
 	#showcaseGallery {grid-template-columns: 1fr 1fr 1fr;}
 }
+
+
 @media only screen and (min-width: 12in) {
+	h1 .titleWrap {
+		padding-left: calc(1/6 * 100%);
+	}
+	.headImgWrap {
+		padding-right: calc(1/6 * 100%);
+	}
 	main {
 		margin: auto;
 		max-width: 66%;
