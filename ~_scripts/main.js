@@ -78,24 +78,14 @@ displayedStudents.forEach(galleryAssembly);
 let buttonImg;
 let config;
 
-function galleryAssembly(student, index, array) {
-	multilineTest = `<a href="" target="_blank" class="showcaseButton">
-		<div class="newHighlight">NEW</div>
-		<img src="!_placeholder1/chirp.png" alt="">
-		<div>` + student + `</div>
-	</a>`;
-	$("#showcaseGallery").append(multilineTest);
+
+//let shuffledGallery = [];
+let galleryContent = document.querySelectorAll(".showcaseButton");
+
+//let docFrag = document.createDocumentFragment();
+let listLength = galleryContent.length;
+for (let i = 0; i <= galleryContent.length; i++) {
+	let ranNum = Math.random() * i | 0;
+	showcaseGallery.appendChild( galleryContent.item(ranNum) );
+	console.log("Button" + i + " to " + ranNum);
 }
-displayedStudents.forEach(galleryAssembly);
-let galleryContents = $("#showcaseGallery a");
-function galleryShuffle() {
-	galleryContents.forEach( function(currentValue, index) {currentValue.detach();} );
-	randomizeArray(galleryContents);
-	galleryContents.forEach( function(currentValue, index) {showcaseGallery.append(currentValue);} );
-	
-}
-galleryShuffle();
-
-
-
-// showcaseGallery.innerHTML = multilineTest;
