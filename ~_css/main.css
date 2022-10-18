@@ -1,8 +1,9 @@
 /*
 #FONT IMPORTS:
-	- PT Sans. Reg 400, Reg 400 Italic, Bold 700, Bold 700 Italic.
+	- PT Sans. Reg 400, Bold 700 all w/ Italic variants.
+	- Roboto Mono. Light 300, Regular 400, Bold 700 all w/ Italic variants.
 */
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 :root {
 	/*
@@ -25,7 +26,6 @@
 	box-sizing: border-box;
 }
 html, body {height: 100%;}
-* {font-family: 'Courier New', Courier, monospace;}
 
 
 .showcaseButton img {width: 128px;}
