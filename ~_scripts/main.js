@@ -33,26 +33,46 @@ let students = [
 	"zenaXayalath"
 ]
 let displayedStudents = [];
-/* Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. */
-function studentCleanup(student, value, index) {
-	let canaryPresent;
-	$.get(student + "/!_showcaseAssets/buttonImg.png")
-		.done(function() {
-			displayedStudents.push(student);
-		});
+/* Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display.
+Using synchronous requests is discouraged these days, but coding with it is profoundly easier.
+Considering the time at the moment, I'm going to make that sacrifice. */
+function studentCleanup(student, index, array) {
+	let xhp = new XMLHttpRequest();
+	xhp.open("GET", student + "/!_showcaseAssets/buttonImg.png", false);
+	xhp.send();
+	if (xhp.status == 200) {
+		displayedStudents.push(student);
+		console.log("Student pushed: " + student);
+	}	
 }
 students.forEach(studentCleanup);
+/* To help encourage exploration, the gallery order will be random on every refresh. This function is defined first as we'll be using it in multiple places sooner rather than later.
+Every student showcase button requires a button image. If one  is not present in the student's folder (ie. Status 404), we can assume that the student's project is not ready for display. Get is a seriously weird function, however. It behaves asynchronously. That means that the code will continue with what it was doing, whether or not the function is done. This is technically better, but practically not. Throws a wrench in how to program this. */
+function randomizeArray(array) {
+	array.sort( function() {return 0.5 - Math.random()} );
+}
+;
 
 
 const showcaseGallery = document.getElementById("showcaseGallery");
-let multilineTest = `<button type="button">
-	<div>NEW</div>
+
+
+let multilineTest = `<a href="" target="_blank" class="showcaseButton">
+	<div class="newHighlight">NEW</div>
 	<img src="!_placeholder1/chirp.png" alt="">
 	<div>This is a button with multiple interior elements.</div>
-</button>`;
+</a>`;
+function galleryAssembly(student, index, array) {
+	multilineTest = `<a href="" target="_blank" id="` + student + `" class="showcaseButton">
+		<div class="newHighlight">NEW</div>
+		<img src="` + student + `/!_showcaseAssets/buttonImg.png" alt="">
+		<div>` + student + `</div>
+	</a>`;
+	showcaseGallery.insertAdjacentHTML("beforeend", multilineTest);
+	console.log("Text inserted");
+}
+displayedStudents.forEach(galleryAssembly);
 
-
-showcaseGallery.innerHTML = multilineTest;
 
 
 let buttonImg;
