@@ -89,9 +89,9 @@ function galleryAssembly(student, index, array) {
 displayedStudents.forEach(galleryAssembly);
 let galleryContents = $("#showcaseGallery a");
 function galleryShuffle() {
-	$.each( galleryContents, function(index, currentValue) {currentValue.detach();} );
-	galleryContents.sort( function() {return 0.5 - Math.random()} );
-	$.each( galleryContents, function(index, currentValue) {showcaseGallery.append(currentValue);} );
+	galleryContents.forEach( function(currentValue, index) {currentValue.detach();} );
+	randomizeArray(galleryContents);
+	galleryContents.forEach( function(currentValue, index) {showcaseGallery.append(currentValue);} );
 	
 }
 galleryShuffle();
