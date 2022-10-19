@@ -37,6 +37,8 @@ html, body {
 }
 
 
+
+
 /* #SITE SECTION ASSETS */
 h1 {
 	display: flex;
@@ -174,12 +176,16 @@ footer a.roundel {cursor: pointer;}
 .hidden {display: none !important;}
 
 
+
+
 /* #GENERAL TEXT ASSETS */
 h1, h2, h3, h4, h5, h6 {color: var(--printBlue_downshift);}
 code {
 	font-family: 'Roboto Mono', monospace;
 	font-size: small;
 }
+
+
 
 
 /* #MEDIA QUERIES */

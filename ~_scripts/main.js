@@ -75,7 +75,7 @@ function galleryAssembly(student, index, array) {
 	let dateDiff = todaysDate - dateApproved;
 	let mintHighlight = "";
 	//If the project is younger than a week since approved:
-	if (dateDiff < 604800000) {mintHighlight = `<div class="newHighlight">NEW</div>`}
+	if (dateDiff < 604800000) {mintHighlight = `<div class="newHighlight">NEW/UPDATED</div>`}
 
 	let projHomepage = student + "/" + config.homepage;
 
