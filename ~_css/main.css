@@ -16,13 +16,14 @@
 	secondaryAccent ... #FFD700.  255, 215,   0.  CSS gold.
 	tertiaryAccent .... #FF1493.  255,  20, 147.  CSS deepPink.
 	*/
-	--printBlue:           #00aeef;
-	--printBlue_downshift: #0d6f93;
-	--printBlack:          #231F20;
-	--printGray:           #58595b;
-	--backing:             #FFFFFF;
-	--secondaryAccent:     #FFD700;
-	--tertiaryAccent:      #FF1493;
+	--printBlue:                       #00aeef;
+	--printBlue_downshift:             #0d6f93;
+	--printBlack:                      #231F20;
+	--printGray:                       #58595b;
+	--backing:                         #FFFFFF;
+	--secondaryAccent:                 #FFD700;
+	--tertiaryAccent:                  #FF1493;
+	--quick_easeout: cubic-bezier(.12,.75,.50,1);
 
 	
 	box-sizing: border-box;
@@ -41,9 +42,11 @@ html, body {
 
 /* #SITE SECTION ASSETS */
 h1 {
+	position: relative;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+
 	margin: 0;
 	padding-top: 2rem;
 }
@@ -64,8 +67,7 @@ h1 .title {
 	background-color: var(--printBlue);
 }
 .headerImg {
-	width: 2in;
-	padding-right: 16%;
+	height: 2.63rem;
 }
 
 main {
@@ -96,27 +98,45 @@ main {
 	border: 1px solid var(--printGray);
 	background-color: rgba(0, 174, 239, 0.5);
 }
+#showcaseGallery #\!_paulEdmiston a {
+	border-color: #008137;
+	background-color: rgba(0, 154, 66, 0.5);
+}
 .buttonText {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
+	overflow: hidden;
 }
 .newHighlight, .nameLabel {
 	position: relative;
-	padding: 1rem;
+	padding: 0.5rem;
 
 	font-size: large;
+	transform: translateX(-100%);
+	transition: transform 0.5s var(--quick_easeout) 0s;
 }
 .newHighlight {
 	color: var(--printBlack);
 	background-color: var(--secondaryAccent);
 	
 	font-weight: bold;
+	transition-delay: 0.125s;
+}
+.buttonText:hover .newHighlight {
+	transform: translateX(0);
 }
 .nameLabel {
 	position: absolute;
 	bottom: 0; left: 0; right: 0;
 	color: var(--backing);
 	background-color: var(--printBlue);
+}
+#\!_paulEdmiston .nameLabel {
+	color: #FFF;
+	background-color: #00b74f;
+}
+.buttonText:hover .nameLabel {
+	transform: translateX(0);
 }
 .showcaseButton img {
 	object-fit: cover;
@@ -196,7 +216,6 @@ code {
 	.headImgWrap {
 		padding-right: 4rem;
 	}
-	.headerImg {width: 3in;}
 
 
 	main {

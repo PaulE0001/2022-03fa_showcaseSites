@@ -123,6 +123,8 @@ article {
 article, article h3, article p {
 	max-width: 480px;
 }
+article#debriefing, article#debriefing p {max-width: inherit;}
+article#debriefing {margin-bottom: 6rem;}
 img.widthCap {
 	margin: auto;
 	border: 1px solid var(--brandingprimary);
