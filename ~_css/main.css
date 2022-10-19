@@ -150,6 +150,9 @@ footer {
 	color: var(--backing);
 	font-size: small;
 }
+footer a {
+	color: var(--backing);
+}
 footer > * {
 	margin-left: auto;
 	margin-right: auto;
@@ -161,9 +164,8 @@ footer > * {
 .footerThumbs img {
 	width: 4rem;
 }
-footer a {
+.footerThumbs a {
 	margin: 0 0.5rem;
-	color: var(--backing);
 }
 footer a.roundel {cursor: pointer;}
 .footerThumbs a:first-child {margin-left: 0;}
